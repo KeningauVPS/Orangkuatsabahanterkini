@@ -117,8 +117,8 @@ exit 0
 ;;
 20)
 cd
-wget https://raw.github.com/arieonline/autoscript/master/centos6-kvm.sh
-bash centos6-kvm.sh
+wget https://raw.githubusercontent.com/adammau2/script-vps/centos-kvm.sh
+bash centos-kvm.sh
 exit 0
 ;;
 21)
