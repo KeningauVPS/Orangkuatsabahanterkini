@@ -4,6 +4,7 @@
 cd /bin
 
 #download menu
+wget -O menu https://raw.githubusercontent.com/KeningauVPS/Orangkuatsabahanterkini/master/menu
 wget -O user https://github.com/arachi006/vps/raw/master/cekexp.sh
 wget -O delexp https://github.com/arachi006/vps/raw/master/expdel.sh
 wget -O hapus https://github.com/arachi006/vps/raw/master/hapus.sh
@@ -15,6 +16,7 @@ wget -O ubahpw https://github.com/arachi006/vps/raw/master/ubahpw.sh
 wget -O unlock https://github.com/arachi006/vps/raw/master/unlock.sh
 wget -O limit https://github.com/arachi006/vps/raw/master/limit.sh
 #beri permission
+chmod +x menu
 chmod +x user
 chmod +x delexp
 chmod +x hapus
