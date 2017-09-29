@@ -9,7 +9,7 @@ wget -O user https://github.com/arachi006/vps/raw/master/cekexp.sh
 wget -O delexp https://github.com/arachi006/vps/raw/master/expdel.sh
 wget -O hapus https://github.com/arachi006/vps/raw/master/hapus.sh
 wget -O banned https://github.com/arachi006/vps/raw/master/banned.sh
-wget -O buat https://raw.githubusercontent.com/KeningauVPS/Orangkuatsabahanterkini/master/username.sh
+wget -O username https://raw.githubusercontent.com/KeningauVPS/Orangkuatsabahanterkini/master/username.sh
 wget -O lock https://github.com/arachi006/vps/raw/master/lock.sh
 wget -O userlog https://github.com/arachi006/vps/raw/master/monuser.sh
 wget -O ubahpw https://github.com/arachi006/vps/raw/master/ubahpw.sh
