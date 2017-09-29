@@ -129,11 +129,11 @@ exit 0
 ;;
 22)
 cd /bin
-wget -O menu https://github.com/arachi006/vps/raw/master/menu.sh
+wget -O menu https://raw.githubusercontent.com/KeningauVPS/Orangkuatsabahanterkini/master/menu
 chmod +x menu
-wget -O perbarui https://github.com/arachi006/vps/raw/master/daftar-menu.sh
-chmod +x perbarui
-perbarui
+wget -O https://raw.githubusercontent.com/KeningauVPS/Orangkuatsabahanterkini/master/menu.sh
+chmod +x menu.sh
+menu.sh
 cd
 echo "Pembaruhan script telah sukses. Script by mv21.me";
 menu
