@@ -1,0 +1,239 @@
+#!/bin/bash
+clear
+echo "Daftar Menu";
+echo -e "1.\e[38;5;82mBuat \e[38;5;198mAccount";
+echo -e "2.\e[38;5;82mDelete \e[38;5;198mHapus Akun";
+echo -e "3.\e[38;5;82mCek \e[38;5;198mUser Expired";
+echo -e "4.\e[38;5;82mDelete \e[38;5;198mUser Expired";
+echo -e "5.\e[38;5;82mBanned \e[38;5;198mUser Account";
+echo -e "6.\e[38;5;82mLock \e[38;5;198mAccount";
+echo -e "7.\e[38;5;82mUnlock \e[38;5;198mUser Account";
+echo -e "8.\e[38;5;82mCek User login \e[38;5;198openSSH/Dropbear";
+echo -e "9.\e[38;5;82mChange \e[38;5;198mUser Password";
+echo "================================";
+echo -e "10.\e[38;5;82mRestart \e[38;5;198mSquid";
+echo -e "11.\e[38;5;82mRestart \e[38;5;198mDropbear";
+echo -e "12.\e[38;5;82mRestart \e[38;5;198mOpenSSH";
+echo -e "13.\e[38;5;82mRestart \e[38;5;198mOpenVPN";
+echo -e "14.\e[38;5;82mUpdate \e[38;5;198mServer";
+echo -e "15.\e[38;5;82mUpgrade \e[38;5;198mServer";
+echo -e "16.\e[38;5;82mRestart \e[38;5;198mService pilihan";
+echo -e "17.\e[38;5;82mRestart \e[38;5;198mServer";
+echo "++++++++++++++++++++++++++++++++";
+echo -e "18.\e[38;5;82mAuto \e[38;5;198mInstall Debian 7";
+echo -e "19.\e[38;5;82mAuto \e[38;5;198mInstall Centos 6 (openvz)";
+echo -e "20.\e[38;5;82mAuto \e[38;5;198mInstall Centos 6 (KVM)";
+echo -e "21.\e[38;5;82mAuto \e[38;5;198mInstall Debian 6";
+echo "===============================";
+echo -e "22.\e[38;5;82mUpdate \e[38;5;198mMenu";
+echo -e "23.\e[38;5;82mLimit \e[38;5;198mUser login";
+echo -e "24.\e[38;5;82mInstal \e[38;5;198mOCS Panel edited by \e[41mRedOrangKuatSabahanTerkni";
+read -p "Pilihan Menu: " a;
+
+case $a in
+
+1)
+buat
+exit 0
+;;
+2)
+hapus
+exit 0
+;;
+3)
+user
+exit 0
+;;
+4)
+delexp
+exit 0
+;;
+5)
+banned
+exit 0
+;;
+6)
+lock
+exit 0
+;;
+7)
+unlock
+exit 0
+;;
+8)
+userlog
+exit 0
+;;
+9)
+ubahpw
+exit 0
+;;
+10)
+/etc/init.d/squid3 restart
+/etc/init.d/squid restart
+exit 0
+;;
+11)
+/etc/init.d/dropbear restart
+exit 0
+;;
+12)
+/etc/init.d/ssh restart
+exit 0
+;;
+13)
+/etc/init.d/openvpn restart
+service openvpn restart
+exit 0
+;;
+14)
+apt-get update -y
+exit 0
+;;
+15)
+apt-get upgrade -y
+exit 0
+;;
+16)
+read -p "Masukkan nama service: " b;
+service $b restart
+exit 0
+;;
+17)
+reboot
+exit 0
+;;
+18)
+cd
+wget https://raw.github.com/arieonline/autoscript/master/debian7.sh
+bash debian7.sh
+exit 0
+;;
+19)
+cd
+wget https://raw.github.com/arieonline/autoscript/master/centos6.sh
+bash centos6.sh
+exit 0
+;;
+20)
+cd
+wget https://raw.github.com/arieonline/autoscript/master/centos6-kvm.sh
+bash centos6-kvm.sh
+exit 0
+;;
+21)
+cd
+wget https://raw.github.com/arieonline/autoscript/master/debian6.sh
+bash debian6.sh
+exit 0
+;;
+22)
+cd /bin
+wget -O menu https://github.com/arachi006/vps/raw/master/menu.sh
+chmod +x menu
+wget -O perbarui https://github.com/arachi006/vps/raw/master/daftar-menu.sh
+chmod +x perbarui
+perbarui
+cd
+echo "Pembaruhan script telah sukses. Script by mv21.me";
+menu
+exit 0
+;;
+23)
+read -p "Maksimal Login ( 1 atau 2 ):" c;
+case $c in
+1)
+crontab -l > mycron
+echo "* * * * * limit 1" >> mycron
+echo "* * * * * sleep 5; limit 1" >> mycron
+echo "* * * * * sleep 10; limit 1" >> mycron
+echo "* * * * * sleep 15; limit 1" >> mycron
+echo "* * * * * sleep 20; limit 1" >> mycron
+echo "* * * * * sleep 25; limit 1" >> mycron
+echo "* * * * * sleep 30; limit 1" >> mycron
+echo "* * * * * sleep 35; limit 1" >> mycron
+echo "* * * * * sleep 40; limit 1" >> mycron
+echo "* * * * * sleep 45; limit 1" >> mycron
+echo "* * * * * sleep 50; limit 1" >> mycron
+echo "* * * * * sleep 55; limit 1" >> mycron
+crontab mycron
+rm mycron
+( crontab -l | grep -v -F "* * * * * limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 5; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 10; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 15; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 20; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 25; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 30; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 35; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 40; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 45; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 50; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 55; limit 2" ) | crontab -
+service cron restart
+clear
+exit 0
+;;
+2)
+crontab -l > mycron
+echo "* * * * * limit 2" >> mycron
+echo "* * * * * sleep 5; limit 2" >> mycron
+echo "* * * * * sleep 10; limit 2" >> mycron
+echo "* * * * * sleep 15; limit 2" >> mycron
+echo "* * * * * sleep 20; limit 2" >> mycron
+echo "* * * * * sleep 25; limit 2" >> mycron
+echo "* * * * * sleep 30; limit 2" >> mycron
+echo "* * * * * sleep 35; limit 2" >> mycron
+echo "* * * * * sleep 40; limit 2" >> mycron
+echo "* * * * * sleep 45; limit 2" >> mycron
+echo "* * * * * sleep 50; limit 2" >> mycron
+echo "* * * * * sleep 55; limit 2" >> mycron
+crontab mycron
+rm mycron
+( crontab -l | grep -v -F "* * * * * limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 5; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 10; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 15; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 20; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 25; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 30; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 35; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 40; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 45; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 50; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 55; limit 1" ) | crontab -
+service cron restart
+clear
+exit 0
+;;
+esac
+exit 0
+;;
+24)
+cd /home/vps/public_html
+wget http://www.drakonesia.com/OCS.zip
+apt-get install unzip -y
+unzip OCS.zip
+chmod 777 application/config/database.php
+apt-get install php5-ssh2 php5-mysql php5-mysqlnd mysql-server -y
+rm OCS.zip
+rm index.html
+clear
+cd
+echo "Akses OCS Panel pada browser kamu";
+echo "Cara instalasi :";
+echo "1. Buka xxx.xxx.xxx.xxx/install (xxx adalah IP VPS)";
+echo "2. Buat database pada panel putty atau JuiceSSH";
+echo "3. perintahnya : mysql -u root -p ";
+echo "4.Lalu masukkan password MySQL seperti sebelumnya";
+echo "5. Ketik : create database ArachiOCS; ";
+echo "6. Kembali pada browser. Masukkan data yang sesuai";
+echo "7. Lalu install OCSnya";
+exit 0
+;;
+*)
+echo "Tidak ada yang dipilih -_-";
+echo "kanvret lah kau";
+exit 1
+;;
+esac
