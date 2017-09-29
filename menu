@@ -27,7 +27,7 @@ echo -e "21.\e[38;5;82mAuto \e[38;5;198mInstall Debian 6";
 echo "===============================";
 echo -e "22.\e[38;5;82mUpdate \e[38;5;198mMenu";
 echo -e "23.\e[38;5;82mLimit \e[38;5;198mUser login";
-echo -e "24.\e[38;5;82mInstal \e[38;5;198mOCS Panel edited by \e[41mRedOrangKuatSabahanTerkni";
+echo -e "24.\e[38;5;82mInstal \e[38;5;198mOCS Panel edited by \e[38;5;196mRedOrangKuatSabahanTerkni";
 read -p "Pilihan Menu: " a;
 
 case $a in
